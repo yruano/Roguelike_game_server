@@ -4,14 +4,17 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"server/game_client"
 	"sync"
+
+	"server/game_client"
 
 	"github.com/gorilla/websocket"
 )
 
-var clients = make(map[string]*game_client.Client)
-var mutex = &sync.Mutex{}
+var (
+	clients = make(map[string]*game_client.Client)
+	mutex   = &sync.Mutex{}
+)
 
 var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
@@ -76,4 +79,3 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
-

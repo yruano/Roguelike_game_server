@@ -1,7 +1,7 @@
 package server
 
-import(
-  "server/game_client"
+import (
+	"server/game_client"
 )
 
 // 움직임 처리

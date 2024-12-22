@@ -1,8 +1,9 @@
 package server
 
 import (
-  "server/game_client"
-  "fmt"
+	"fmt"
+
+	"server/game_client"
 )
 
 // 공격 처리
@@ -12,4 +13,3 @@ func handleAttack(client *game_client.Client, attack game_client.AttackData) {
 	// 공격 정보를 모든 클라이언트에게 전송
 	broadcastAttack(attack)
 }
-
