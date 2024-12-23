@@ -73,6 +73,15 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 				}
 				handleAttack(client, attack)
 
+			case "hit":
+				var hit game_client.HitData
+				err := json.Unmarshal(msg.Data, &hit)
+				if err != nil {
+					fmt.Println("Invalid hit data:", err)
+					continue
+				}
+				handleHit(client, hit)
+
 			default:
 				fmt.Println("Unknown action:", msg.Action)
 			}

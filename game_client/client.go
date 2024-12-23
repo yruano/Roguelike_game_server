@@ -14,8 +14,12 @@ type Client struct {
 }
 
 type PlayerStats struct {
-	HP    int
-	MP    int
-	Level int
-	XP    int
+	MaxHp   float32
+	MaxMp   float32
+	HP      float32
+	MP      float32
+	Speed   float32
+	Defense float32
+	Level   int
+	XP      float32
 }
