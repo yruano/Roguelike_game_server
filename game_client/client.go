@@ -10,10 +10,10 @@ type Client struct {
 	Conn        *websocket.Conn
 	X           float32
 	Y           float32
-	PlayerStats PlayerStats // 플레이어의 상태를 관리하는 구조체
+	PlayerState PlayerState // 플레이어의 상태를 관리하는 구조체
 }
 
-type PlayerStats struct {
+type PlayerState struct {
 	MaxHp   float32
 	MaxMp   float32
 	HP      float32

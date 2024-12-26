@@ -14,12 +14,16 @@ func broadcastPlayerStates() {
 	players := make(map[string]map[string]interface{})
 	for id, client := range clients {
 		players[id] = map[string]interface{}{
-			"x":     client.X,
-			"y":     client.Y,
-			"hp":    client.PlayerStats.HP,
-			"mp":    client.PlayerStats.MP,
-			"level": client.PlayerStats.Level,
-			"xp":    client.PlayerStats.XP,
+			"x":       client.X,
+			"y":       client.Y,
+			"maxhp":   client.PlayerState.MaxHp,
+			"maxmp":   client.PlayerState.MaxMp,
+			"hp":      client.PlayerState.HP,
+			"mp":      client.PlayerState.MP,
+			"speed":   client.PlayerState.Speed,
+			"defense": client.PlayerState.Defense,
+			"level":   client.PlayerState.Level,
+			"xp":      client.PlayerState.XP,
 		}
 	}
 

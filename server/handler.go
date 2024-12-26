@@ -55,6 +55,18 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 		// 각각의 동작을 처리
 		for _, msg := range actions {
 			switch msg.Action {
+			case "character_selection":
+				var state game_client.PlayerState
+				err := json.Unmarshal(msg.Data, &state)
+				if err != nil {
+					fmt.Println("Invalid move data:", err)
+					continue
+				}
+				player_init(client, state)
+
+      case "game_start":
+        player_spawn()
+
 			case "move":
 				var move game_client.MoveData
 				err := json.Unmarshal(msg.Data, &move)

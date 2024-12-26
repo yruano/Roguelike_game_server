@@ -5,13 +5,13 @@ import (
 )
 
 func handleHit(client *game_client.Client, hit game_client.HitData) {
-	client.PlayerStats.HP -= hit.Damage
+	client.PlayerState.HP -= hit.Damage
 
 	switch hit.Debuffer_type {
 	case "speed":
-    client.PlayerStats.Speed -= hit.Debuffer_cost
+    client.PlayerState.Speed -= hit.Debuffer_cost
 	case "defense":
-    client.PlayerStats.Defense -= hit.Debuffer_cost
+    client.PlayerState.Defense -= hit.Debuffer_cost
 	}
 
 	broadcastPlayerStates()
